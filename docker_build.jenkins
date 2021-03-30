@@ -25,8 +25,8 @@ pipeline {
         stage("create docker image") {
             steps {
                 echo " ============== start building image =================="
-                dir ('site1') {
-                	sh 'docker build -t trofimovsemen/static-site1:latest . '
+                dir ('app') {
+                	sh 'docker build -t trofimovsemen/kubia:latest . '
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 echo " ============== start pushing image =================="
                 sh '''
-                docker push trofimovsemen/static-site1:latest
+                docker push trofimovsemen/kubia:latest
                 '''
             }
         }
